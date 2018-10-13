@@ -48,6 +48,8 @@
                     <i class="fa fa-thumbs-up   mr-3"></i>حضور اليوم</a>
                 <a href="non_attendance_data.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-thumbs-down   mr-3"></i>غياب اليوم</a>
+                <a href="Quorum_deue.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fa fa-american-sign-language-interpreting mr-3"></i>Quorum deue</a>
             </div>
 
         </div>
