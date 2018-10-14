@@ -52,7 +52,7 @@ include 'nav.php';
     <select style="margin-left: 300px; width: 70%;padding: 12px 20px; " name="kid">
 
         <?php
-        $sql = "SELECT name FROM user WHERE usertype = 3";
+        $sql = "SELECT name FROM user WHERE usertype = 1";
         $result = $connect->query($sql);
 
         if ($result->num_rows > 0) {

@@ -481,6 +481,151 @@ if (isset($_POST['hany']))
                     }
                 }
             }
+            if (isset($_POST['tony']))
+            {
+                echo "<h1 style='margin-top: 100px;margin-left: 500px;'>أ/أنطونيوس القس</h1>";
+                $sql = "SELECT * From user WHERE  servantm = 'توني القس'";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+
+                        <tr>
+
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['attendance'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['times'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo "0".$row['mobile'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_level'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['id'] ?></td>
+                        </tr>
+
+
+                        <?php
+                    }
+                }
+            }
+            if (isset($_POST['andrewg']))
+            {
+                echo "<h1 style='margin-top: 100px;margin-left: 500px;'>أ/أندرو جورج</h1>";
+                $sql = "SELECT * From user WHERE  servantm = 'دودز'";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+
+                        <tr>
+
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['attendance'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['times'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo "0".$row['mobile'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_level'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['id'] ?></td>
+                        </tr>
+
+
+                        <?php
+                    }
+                }
+            }
+            if (isset($_POST['andrewr']))
+            {
+                echo "<h1 style='margin-top: 100px;margin-left: 500px;'>أ/أندرو رشدي</h1>";
+                $sql = "SELECT * From user WHERE  servantm = 'رشدي'";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+
+                        <tr>
+
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['attendance'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['times'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo "0".$row['mobile'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_level'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['id'] ?></td>
+                        </tr>
+
+
+                        <?php
+                    }
+                }
+            }
+            if (isset($_POST['fady']))
+            {
+                echo "<h1 style='margin-top: 100px;margin-left: 500px;'>أ/فادي هاني</h1>";
+                $sql = "SELECT * From user WHERE  servantm = 'فتفت'";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+
+                        <tr>
+
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['attendance'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['times'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo "0".$row['mobile'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_level'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['id'] ?></td>
+                        </tr>
+
+
+                        <?php
+                    }
+                }
+            }
+            if (isset($_POST['marc']))
+            {
+                echo "<h1 style='margin-top: 100px;margin-left: 500px;'>أ/مارك عصام</h1>";
+                $sql = "SELECT * From user WHERE  servantm = 'مارك' ";
+                $result = $connect->query($sql);
+                if ($result->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        ?>
+
+
+                        <tr>
+
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['attendance'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['times'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo "0".$row['mobile'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['flat_level'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['st_no'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['name'] ?></td>
+                            <td style="text-align: center; font-size: 15px;"><?php echo $row['id'] ?></td>
+                        </tr>
+
+
+                        <?php
+                    }
+                }
+            }
             ?>
     </div>
 </div>
