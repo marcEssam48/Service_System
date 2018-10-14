@@ -50,6 +50,8 @@
                     <i class="fa fa-thumbs-down   mr-3"></i>غياب اليوم</a>
                 <a href="Quorum_deue.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-american-sign-language-interpreting mr-3"></i>Quorum deue</a>
+                <a href="issues.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fa fa-x-ray mr-3"></i>Issues</a>
             </div>
 
         </div>
