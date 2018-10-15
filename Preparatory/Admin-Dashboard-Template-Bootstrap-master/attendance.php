@@ -60,7 +60,7 @@
     <select style="margin-left: 300px; width: 70%;padding: 12px 20px;margin-top: 100px;" name="name">
 
         <?php
-        $sql = "SELECT name FROM user WHERE usertype = 3 ";
+        $sql = "SELECT name FROM user WHERE usertype != 10 ";
         $result = $connect->query($sql);
 
         if ($result->num_rows > 0) {

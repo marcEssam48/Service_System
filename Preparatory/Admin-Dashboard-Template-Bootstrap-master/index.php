@@ -356,6 +356,49 @@ if ($result->num_rows > 0) {
                                         <i class="fa fa-arrow-up ml-1"></i>
                                     </span>
                                 </a>
+                                <a class="list-group-item list-group-item-action waves-effect">نسبة الاعتراف
+                                    <span class="badge badge-primary badge-pill pull-right"><?php
+
+                                        if ($connect->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+
+                                        $sql = "SELECT * From user WHERE usertype != 10";
+                                        $result = $connect->query($sql);
+                                        $counter = 0;
+                                        $fath = 0;
+
+                                        if ($result->num_rows > 0) {
+// output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                                $counter ++;
+
+
+                                            }
+                                        }
+
+                                        $sql = "SELECT * From user WHERE father = '' and usertype !=10";
+                                        $result = $connect->query($sql);
+                                        if ($result->num_rows > 0) {
+// output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                                $fath ++;
+
+
+                                            }
+                                        }
+
+                                        if($counter != 0) {
+                                            $final = 100 - ($fath / $counter * 100);
+                                            echo round($final) . "%";
+                                        }
+                                        else{
+                                            echo "0%";
+                                        }
+                                        ?>
+                                        <i class="fa fa-arrow-up ml-1"></i>
+                                    </span>
+                                </a>
 
                             </div>
                             <!-- List group links -->
