@@ -64,7 +64,7 @@
             </header>
 
             <body class="grey lighten-3" style="overflow-y:scroll;height:600px;display:block;">
-            <table style="width:80% ; margin-top: 100px;margin-left: 290px;margin-right: -50px;overflow-y:scroll;height:600px;display:block;" class="table table-striped" border="1">
+            <table style="width:80% ; margin-top: 100px;margin-left: 250px;margin-right: -50px;overflow-y:scroll;height:600px;display:block;" class="table table-striped" border="1">
   <tr>
 
 

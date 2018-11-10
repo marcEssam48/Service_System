@@ -60,7 +60,7 @@
     <select style="margin-left: 300px; width: 70%;padding: 12px 20px;margin-top: 100px;" name="name">
 
         <?php
-        $sql = "SELECT name FROM user WHERE usertype != 10 ";
+        $sql = "SELECT name FROM user WHERE usertype != 10  ";
         $result = $connect->query($sql);
 
         if ($result->num_rows > 0) {
@@ -78,6 +78,7 @@
 
 
     <input type="submit" name="attend" class="btn btn-success" value=" Submit" style="margin-left: 300px;margin-top: -50px;">
+    <input type="submit" name="bonus_quorum" class="btn btn-success" value=" Quorum Bonus" style="margin-left: 300px;margin-top: -50px;">
 
     <br><br><br><br><br><br><br><br><br><br><br><br>
     <input type="submit" name="reset" class="btn btn-success" value=" reset" style="margin-left: 300px;margin-top: -50px;">

@@ -25,10 +25,10 @@
                         $sql = "SELECT * FROM user WHERE usertype != 10";
 
                         $now = new DateTime();
-                        $week_one = new DateTime("2018/10/7");
-                        $week_two = new DateTime("2018/10/14");
-                        $week_three = new DateTime("2018/10/21");
-                        $week_four = new DateTime("2018/10/30");
+                        $week_one = new DateTime("2018/11/7");
+                        $week_two = new DateTime("2018/11/14");
+                        $week_three = new DateTime("2018/11/21");
+                        $week_four = new DateTime("2018/11/30");
                         $result = $connect->query($sql);
                         if ($result->num_rows > 0) {
                             $counter = 0;
@@ -46,7 +46,7 @@
                         ?>
                     </a>
 
-                          <ul class="dropdown-menu" > <?php
+                          <ul class="dropdown-menu" style="overflow-y:scroll;height: 700px;"> <?php
                         $sql = "SELECT * FROM user WHERE usertype != 10 ";
                         $result = $connect->query($sql);
                         if ($result->num_rows > 0) {
@@ -54,7 +54,7 @@
                             while($row = $result->fetch_assoc()) {
                                 if($week_four < $now){
                                     if($row['week_one'] == 0 && $row['week_two'] == 0 && $row['week_three'] == 0 && $row['week_four'] == 0 ) {
-                                        echo "<h5 class='alert-danger'>".$counter . ")"  . " " . " \"". $row['name']."\""." " . "لم يحضر هذا الشهر و لا مرة من سنة "." ".$row['usertype']."</h5>";
+                                        echo "<h5 class='alert-danger'>"   . $row['name']." " . " "." </h5>";
                                         echo "<hr>";
                                         $counter += 1;
                                     }

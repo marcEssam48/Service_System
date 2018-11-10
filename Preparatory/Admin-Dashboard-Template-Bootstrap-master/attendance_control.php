@@ -6,9 +6,12 @@
 include 'Uifunctions.php';
 $connect = mysqli_connect('localhost','root','','prep');
 $redirect = new Uifunctions();
+$attPoints = 5;
+$bonusPoints = 5;
+$name = $_POST['name'];
 
 if(isset($_POST['attend'])){
-    $name = $_POST['name'];
+
 if ($connect->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -18,10 +21,10 @@ $sql = "SELECT * From user WHERE name = '$name'";
 $result = $connect->query($sql);
 
 $now = new DateTime();
-$week_one = new DateTime("2018/10/7");       #Don't Forget Notification.php
-$week_two = new DateTime("2018/10/14");
-$week_three = new DateTime("2018/10/21");
-$week_four = new DateTime("2018/10/30");
+$week_one = new DateTime("2018/11/7");       #Don't Forget Notification.php
+$week_two = new DateTime("2018/11/14");
+$week_three = new DateTime("2018/11/21");
+$week_four = new DateTime("2018/11/30");
 
 if ($result->num_rows > 0) {
 // output data of each row
@@ -32,15 +35,39 @@ while ($row = $result->fetch_assoc()) {
     $two = $row['week_two'];
     $three = $row['week_three'];
     $four = $row['week_four'];
-
+    $att = $row['att'] + $attPoints;
     $number ++;
     $attendance = $row['attendance'];
     $attendance = 1;
+    $wara = $row['attendance_waraa']+5;
+    $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att']+$row['total'];
 
-
-
+if($row['attendance'] == 0) {
     $sql1 = "Update user SET times = $number WHERE id = $id";
     $sql2 = "Update user SET attendance = $attendance WHERE id = $id";
+    $result1 = mysqli_query($connect,$sql1);
+    $result2 = mysqli_query($connect,$sql2);
+
+    if($result1){
+        $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
+        $redirect->redirectHome($msg,'index.php');
+        echo "<br>";
+    }
+    else{
+        echo "Please Enter Address";
+    }
+    if($result2){
+        $msg = "<div class=' alert alert-success'> Attended updated Successfully </div>";
+        $redirect->redirectHome($msg,'index.php');
+        echo "<br>";
+    }
+    else{
+        echo "Please Enter Address";
+    }
+}
+
+    #$sql4 = "Update user SET att = '$att'  where id = '$id'"
+    #$result4 = mysqli_query($connect,$sql4);;
 
     if($now <= $week_one){
 
@@ -63,25 +90,10 @@ while ($row = $result->fetch_assoc()) {
         $result3 = mysqli_query($connect,$sql3);
     }
 
-    $result1 = mysqli_query($connect,$sql1);
-    $result2 = mysqli_query($connect,$sql2);
 
-    if($result1){
-        $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-        $redirect->redirectHome($msg,'index.php');
-        echo "<br>";
-    }
-    else{
-        echo "Please Enter Address";
-    }
-    if($result2){
-        $msg = "<div class=' alert alert-success'> Attended updated Successfully </div>";
-        $redirect->redirectHome($msg,'index.php');
-        echo "<br>";
-    }
-    else{
-        echo "Please Enter Address";
-    }
+
+
+
 
 }
 }
@@ -110,6 +122,8 @@ if ($result->num_rows > 0) {
         $sql3 = "Update user SET attendance = $attendance WHERE 1";
 
         $result3 = mysqli_query($connect,$sql3);
+        $sql9 = "UPDATE user SET total = '$total' WHERE id = '$id'";
+        $result9 = mysqli_query($connect,$sql9);
 
         if($result3){
             $msg = "<div class=' alert alert-success'> reset Successfully </div>";
@@ -156,5 +170,38 @@ if (isset($_POST['reset_month']))
         echo "<br>";
     }
 }
+if(isset($_POST['bonus_quorum'])){
+
+    if ($connect->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * From user WHERE name = '$name'";
+
+    $result8 = $connect->query($sql);
+
+if ($result8->num_rows > 0) {
+// output data of each row
+while ($row = $result8->fetch_assoc()) {
+    $id = $row['id'];
+$bonus = $row['bonus'] + $bonusPoints;
+$total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att']+$row['total'];
+$sql2 = "UPDATE user set bonus = '$bonus' WHERE name = '$name'";
+    $sql3 = "UPDATE user SET total = '$total' WHERE id = '$id'";
+    $result9 = mysqli_query($connect,$sql3);
+$result8 = mysqli_query($connect,$sql2);
+
+
+    if($result8){
+        $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
+        $redirect->redirectHome($msg,'index.php');
+        echo "<br>";
+    }
+}
+}
+
+
+}
+
 ?>
 

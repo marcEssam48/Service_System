@@ -22,7 +22,7 @@
                 <a href="index.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-bar-chart mr-3"></i>Dashboard
                 </a>
-                <a href="eftekad.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="eftekad_two.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-user mr-3"></i>الافتقاد</a>
                 <a href="event.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-table mr-3"></i>Events</a>
@@ -52,6 +52,11 @@
                     <i class="fa fa-american-sign-language-interpreting mr-3"></i>Quorum deue</a>
                 <a href="issues.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-x-ray mr-3"></i>Issues</a>
+                <a href="madares.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fa fa-address-book mr-3"></i>مدارس</a>
+                <a href="Deue.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fa fa-address-book mr-3"></i>Deue</a>
+
             </div>
 
         </div>

@@ -113,8 +113,8 @@ if ($result->num_rows > 0) {
                             }
                             $dataPoints = array(
                                 array("x"=> 10, "y"=> $at1 , "indexLabel"=> "أولي"),
-                                array("x"=> 20, "y"=> $at2 , "indexLabel"=> "ثانية"),
-                                array("x"=> 30, "y"=> $at3 , "indexLabel"=> "ثالثة")
+                                array("x"=> 15, "y"=> $at2 , "indexLabel"=> "ثانية"),
+                                array("x"=> 20, "y"=> $at3 , "indexLabel"=> "ثالثة")
 
 
                             );
@@ -395,6 +395,33 @@ if ($result->num_rows > 0) {
                                         else{
                                             echo "0%";
                                         }
+                                        ?>
+                                        <i class="fa fa-arrow-up ml-1"></i>
+                                    </span>
+                                </a>
+                                <a class="list-group-item list-group-item-action waves-effect"> عدد المخدومين
+                                    <span class="badge badge-danger pull-right"><?php
+
+                                        if ($connect->connect_error) {
+                                            die("Connection failed: " . $conn->connect_error);
+                                        }
+
+                                        $sql = "SELECT * From user WHERE usertype != 10";
+                                        $result = $connect->query($sql);
+                                        $counter = 0;
+
+
+                                        if ($result->num_rows > 0) {
+// output data of each row
+                                            while ($row = $result->fetch_assoc()) {
+                                                $counter ++;
+
+
+                                            }
+                                        }
+
+
+                                        echo $counter;
                                         ?>
                                         <i class="fa fa-arrow-up ml-1"></i>
                                     </span>
@@ -979,7 +1006,7 @@ echo "<br>";
                     text: "احصائيات"
                 },
                 data: [{
-                    type: "column", //change type to bar, line, area, pie, etc
+                    type: "pie", //change type to bar, line, area, pie, etc
                     //indexLabel: "{y}", //Shows y value on all Data Points
                     indexLabelFontColor: "#5A5757",
                     indexLabelPlacement: "outside",
@@ -993,7 +1020,7 @@ echo "<br>";
             </head>
             <body>
             <br><br><br><br><br><br>
-            <div id="chartContainer" style=" width: 50% ; margin-top: -1650px; margin-left: 350px; height: 100%;"></div>
+            <div id="chartContainer" style=" width: 50% ; margin-top: -1850px; margin-left: 350px; height: 100%;"></div>
 
 
             <script type="text/javascript" href="bootstrap.min.js"></script>

@@ -8,7 +8,7 @@
                 <div class="card-body d-sm-flex justify-content-between">
 
 
-                        <h3  style="margin-left: 300px;color: #2a1758;margin-right: 240px;">كنيسة رئيس الملائكة الجليل ميخائيل بالظاهر</h3>
+                        <h3  style="margin-left: 200px;color: #2a1758;margin-right: 240px;">كنيسة رئيس الملائكة الجليل ميخائيل بالظاهر</h3>
 
 
 

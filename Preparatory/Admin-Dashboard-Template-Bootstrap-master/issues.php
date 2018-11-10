@@ -92,9 +92,9 @@ $redirect = new Uifunctions();
 ?>
 
 </div>
-<div class="alert-success" style="overflow-y:scroll;height:730px;width:100%;display:inline-block;margin-left: 400px;">
-    <div class="alert-success" >
-<div class="alert-success">
+<div class="alert-success" style="overflow-y:scroll;height:730px;width:100%;display:inline-block;margin-left: 340px;">
+    <div class="alert-success"  >
+
 
 
     <table style="width:80% ; margin-top: 20px;margin-left: 0px; margin-right: -100px;" class="table table-striped" border="1" >

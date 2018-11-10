@@ -99,7 +99,7 @@
         <input type="hidden" value='' id='hidden-type' name='ExportType'/>
     </form>
     -->
-<div class="alert-success" style="overflow-y:scroll;height:800px;width:100%;display:inline-block;margin-left: 400px;">
+<div class="alert-success" style="overflow-y:scroll;height:700px;width:100%;display:inline-block;margin-left: 250px;">
     <div class="alert-success" >
 
 

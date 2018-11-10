@@ -7,246 +7,239 @@ include 'Uifunctions.php';
 $connect = mysqli_connect('localhost','root','','prep');
 $redirect = new Uifunctions();
 
-$attPoints = 1;
-$coptPoints = 1;
-$alhanPoints = 1;
-$maradPoints = 1;
-$kiahkPoints = 1;
-$odasPoints = 1;
-$eidPoints = 1;
-$nahdaPoints = 1;
+$attPoints = 10;
+$tonya = 5;
+$without_tonya = 2;
 
-if(isset($_POST['att'])) {
+if(isset($_POST['nahda_toneya'])){
     $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
+    $sql = "SELECT * From user  ";
     $result = $connect->query($sql);
 
 
+
     if ($result->num_rows > 0) {
-// output data of each row
+        // output data of each row
         while ($row = $result->fetch_assoc()) {
-            $att = $row['att'] + $attPoints;
-            $sql1 = "UPDATE user SET att = $att WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
+
+         $nahda = $row['nahda'] + $tonya;
+         $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+         $sql1 = "UPDATE user SET nahda = '$nahda' WHERE id = '$id'";
+         $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
+         $result2 = mysqli_query($connect,$sql2);
+         $result1= mysqli_query($connect,$sql1);
 
             if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
                 $redirect->redirectHome($msg,'index.php');
                 echo "<br>";
             }
         }
+
     }
+
 }
-if(isset($_POST['alhan'])) {
+if(isset($_POST['nahda_without'])){
     $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
+    $sql = "SELECT * From user  ";
     $result = $connect->query($sql);
 
 
-    if ($result->num_rows > 0) {
-// output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $alhan = $row['alhan'] + $alhanPoints;
-            $sql1 = "UPDATE user SET alhan = $alhan WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-
-            if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-        }
-    }
-}
-if(isset($_POST['copt'])) {
-    $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
-    $result = $connect->query($sql);
-
 
     if ($result->num_rows > 0) {
-// output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $copt = $row['copt'] + $coptPoints;
-            $sql1 = "UPDATE user SET copt = $copt WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-
-            if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-        }
-    }
-}
-if(isset($_POST['marad'])) {
-    $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
-    $result = $connect->query($sql);
-
-
-    if ($result->num_rows > 0) {
-// output data of each row
-        while ($row = $result->fetch_assoc()) {
-            $marad = $row['marad'] + $maradPoints;
-            $sql1 = "UPDATE user SET marad = $marad WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-
-            if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-        }
-    }
-}
-if(isset($_POST['cermony'])){
-    header('Location: cermony.php');
-
-}
-
-if(isset($_POST['kiahk'])) {
-    $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
-    $result = $connect->query($sql);
-
-
-    if ($result->num_rows > 0) {
-// output data of each row
+        // output data of each row
         while ($row = $result->fetch_assoc()) {
 
-            $kiahk = $row['kiahk'] + $kiahkPoints;
-            $sql1 = "UPDATE user SET kiahk = $kiahk WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-            $cermony = $kiahk + $row['nahda'] + $row['eid'];
-            $sql2 = "UPDATE user SET cermony = $cermony WHERE id = '$id'";
+            $nahda = $row['nahda'] + $without_tonya;
+            $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+            $sql1 = "UPDATE user SET nahda = '$nahda' WHERE id = '$id'";
+            $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
             $result2 = mysqli_query($connect,$sql2);
+            $result1= mysqli_query($connect,$sql1);
 
             if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
                 $redirect->redirectHome($msg,'index.php');
                 echo "<br>";
             }
         }
+
     }
+
 }
-if(isset($_POST['odas'])) {
+if(isset($_POST['kiahk_toneya'])){
     $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
+    $sql = "SELECT * From user  ";
     $result = $connect->query($sql);
 
 
+
     if ($result->num_rows > 0) {
-// output data of each row
+        // output data of each row
         while ($row = $result->fetch_assoc()) {
 
-            $odas = $row['eid'] + $odasPoints;
-            $sql1 = "UPDATE user SET eid = $odas WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-            $cermony = $row['kiahk'] + $row['nahda'] + $odas;
-            $sql2 = "UPDATE user SET cermony = $cermony WHERE id = '$id'";
+            $kiahk = $row['kiahk'] + $tonya;
+            $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+            $sql1 = "UPDATE user SET kiahk = '$kiahk' WHERE id = '$id'";
+            $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
             $result2 = mysqli_query($connect,$sql2);
+            $result1= mysqli_query($connect,$sql1);
 
             if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
-                $redirect->redirectHome($msg,'index.php');
-                echo "<br>";
-            }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
                 $redirect->redirectHome($msg,'index.php');
                 echo "<br>";
             }
         }
+
     }
+
 }
-if(isset($_POST['nahda'])) {
+if(isset($_POST['kiahk_without'])){
     $id = $_POST['id'];
-    if ($connect->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * From user WHERE id = '$id'";
-
+    $sql = "SELECT * From user  ";
     $result = $connect->query($sql);
 
 
+
     if ($result->num_rows > 0) {
-// output data of each row
+        // output data of each row
         while ($row = $result->fetch_assoc()) {
 
-            $nahda = $row['nahda'] + $nahdaPoints;
-            $sql1 = "UPDATE user SET nahda = $nahda WHERE id = '$id'";
-            $result1 = mysqli_query($connect,$sql1);
-            $cermony = $row['kiahk'] + $nahda + $row['eid'];
-            $sql2 = "UPDATE user SET cermony = $cermony WHERE id = '$id'";
+            $kiahk = $row['kiahk'] + $without_tonya;
+            $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+            $sql1 = "UPDATE user SET kiahk = '$kiahk' WHERE id = '$id'";
+            $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
             $result2 = mysqli_query($connect,$sql2);
+            $result1= mysqli_query($connect,$sql1);
 
             if($result1){
-                $msg = "<div class=' alert alert-success'> Attended Successfully </div>";
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
                 $redirect->redirectHome($msg,'index.php');
                 echo "<br>";
             }
-            else{
-                $msg = "<div class=' alert alert-danger'>This name is not registered </div>";
+        }
+
+    }
+
+}
+if(isset($_POST['eid_toneya'])){
+    $id = $_POST['id'];
+    $sql = "SELECT * From user  ";
+    $result = $connect->query($sql);
+
+
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+
+            $eid = $row['eid'] + $tonya;
+            $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+            $sql1 = "UPDATE user SET eid = '$eid' WHERE id = '$id'";
+            $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
+            $result2 = mysqli_query($connect,$sql2);
+            $result1= mysqli_query($connect,$sql1);
+
+            if($result1){
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
+                $redirect->redirectHome($msg,'index.php');
+                echo "<br>";
+            }
+        }
+
+    }
+
+}
+
+if(isset($_POST['eid_without'])){
+    $id = $_POST['id'];
+    $sql = "SELECT * From user  ";
+    $result = $connect->query($sql);
+
+
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+
+            $eid = $row['eid'] + $without_tonya;
+            $total = $row['nahda'] + $row['eid'] + $row['kiahk'] + $row['bonus'] + $row['att'];
+
+            $sql1 = "UPDATE user SET eid = '$eid' WHERE id = '$id'";
+            $sql2 = "UPDATE user SET total = '$total' WHERE id = '$id'";
+            $result2 = mysqli_query($connect,$sql2);
+            $result1= mysqli_query($connect,$sql1);
+
+            if($result1){
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
+                $redirect->redirectHome($msg,'index.php');
+                echo "<br>";
+            }
+        }
+
+    }
+
+}
+if (isset($_POST['bonus_added'])){
+
+    $name = $_POST['name'];
+    $bonus = $_POST['bonus'];
+
+    $sql = "SELECT * From user  where name = '$name'";
+    $result = $connect->query($sql);
+
+
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+
+        $bonuss = $bonus + $row['bonus'];
+        $sql = "UPDATE user SET bonus = '$bonuss' Where name = '$name' ";
+        $result = mysqli_query($connect,$sql);
+
+            if($result){
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
+                $redirect->redirectHome($msg,'index.php');
+                echo "<br>";
+            }
+        }
+        }
+
+
+}
+if (isset($_POST['attens'])){
+
+    $name = $_POST['name'];
+    $alhan = 10;
+
+    $sql = "SELECT * From user  where name = '$name'";
+    $result = $connect->query($sql);
+
+
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+
+            $bonuss = $alhan + $row['alhan'];
+            $sql = "UPDATE user SET alhan = '$bonuss' Where name = '$name' ";
+            $result = mysqli_query($connect,$sql);
+
+            if($result){
+                $msg = "<div class=' alert alert-success'> Bonus added Successfully </div>";
                 $redirect->redirectHome($msg,'index.php');
                 echo "<br>";
             }
         }
     }
+
+
 }
+
